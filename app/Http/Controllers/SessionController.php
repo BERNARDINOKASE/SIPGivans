@@ -15,7 +15,7 @@ class SessionController extends Controller
 
         $request->validate([
             'email' => 'required|exists:users,email',
-            'password' => 'required|exists:users,password',
+            // 'password' => 'required|exists:users,password',
         ], [
             'email.required' => 'Eemail wajib diisi',
             'email.exists' => 'Email tidak terdaftar',
@@ -28,7 +28,7 @@ class SessionController extends Controller
         ];
 
         if (Auth::attempt($login)) {
-            return '<h1>Selamat datang di halaman dashboard</h1>';
+            return to_route('dashboard');
         } else {
             return to_route('login')->withErrors('Username atau password anda salah');
         }
