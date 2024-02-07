@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\GuestController;
+use App\Http\Controllers\HomePageController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -14,9 +16,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/newlogin', function () {
+//     return view('auth.newLogin');
+// });
+Route::get('/', [GuestController::class, 'index']);
+Route::get('/login', [GuestController::class, 'login'])->name('login');
+Route::get('/register', [GuestController::class, 'register'])->name('register');
+Route::get('/forgot-password', [GuestController::class, 'forgotPassword'])->name('forgotPassword');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
@@ -28,4 +34,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-require __DIR__.'/auth.php';
+
+
+require __DIR__ . '/auth.php';
