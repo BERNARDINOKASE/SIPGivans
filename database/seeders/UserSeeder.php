@@ -15,19 +15,27 @@ class UserSeeder extends Seeder
     {
         $data = [
             [
-                'name' => 'satu',
+                'name' => 'admin',
                 'nis' => 1231231123,
                 'address' => 'kupang',
-                'email' => 'satu@example.com',
+                'email' => 'sip@admin.com',
+                'role' => 'administrator',
                 'password' => bcrypt('sipgivans')
-            ],
-            [
-                'name' => 'dua',
-                'nis' => 1276531123,
+            ], [
+                'name' => 'guru BK',
+                'nis' => 1098531123,
                 'address' => 'kupang',
-                'email' => 'dua@example.com',
+                'email' => 'sip@gurubk.com',
+                'role' => 'guidanceTeacher',
                 'password' => bcrypt('sipgivans')
-            ],
+            ], [
+                'name' => 'siswa',
+                'nis' => 1223891123,
+                'address' => 'kupang',
+                'email' => 'sip@siswa.com',
+                'role' => 'student',
+                'password' => bcrypt('sipgivans')
+            ]
         ];
 
         foreach ($data as $value) {

@@ -29,13 +29,13 @@ class SessionController extends Controller
 
         if (Auth::attempt($login)) {
             if (Auth::user()->role == 'guidanceTeacher') {
-                return '<h1>HALAMAN guidanceTeacher</h1>';
+                return view('guidanceTheacer.index');
             }
             if (Auth::user()->role == 'student') {
-                return '<h1>HALAMAN STUDENT</h1>';
+                return view('student.index');
             }
             if (Auth::user()->role == 'administrator') {
-                return '<h1>HALAMAN ADMINISTRATOR</h1>';
+                return to_route('dashboard.admin');
             }
         } else {
             return to_route('login')->withErrors('Username atau password anda salah');

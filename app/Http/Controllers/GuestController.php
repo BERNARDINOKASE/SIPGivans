@@ -9,7 +9,7 @@ class GuestController extends Controller
     // homepage view
     public function index()
     {
-        return view('guest.layouts.app');
+        return view('guest.layouts.master');
     }
 
     // login view
